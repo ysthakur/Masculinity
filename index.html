@@ -31,6 +31,14 @@
         }
       ];
       
+      //From https://stackoverflow.com/a/35385518
+      function htmlToElement(html) {
+        var template = document.createElement('template');
+        html = html.trim();
+        template.innerHTML = html;
+        return template.content.firstChild;
+      }
+      
       function loadPage(pageName) {
         const page = pages[pageName];
         const promptElem = document.getElementById("prompt");
