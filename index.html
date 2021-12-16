@@ -4,6 +4,20 @@
     <title>Masculinity in Born a Crime</title>
   </head>
   <body>
-    <p>asdf</p>
+    <p id="prompt">You hear someone behind you. Though you have no idea who it is, your Useless Info device (TM) tells you he speaks Tsonga.</p>
+    <div>Actions:</div>
+    <div id="actions">
+      <input type="radio" id="action1" name="actionChoice" value="action1choose">
+      <label for="action1">Run</label>
+      <input type="radio" id="action2" name="actionChoice" value="action2choose">
+      <label for="action1">Don't run</label>
+    </div>
+    <canvas id="mainCanvas" width="400" height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("mainCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.moveTo(0, 0);
+      ctx.fillText("blahblahblah", 300, 300);
+    </script>
   </body>
 </html>
