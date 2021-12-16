@@ -34,6 +34,7 @@
       
       function loadPage(pageName) {
         const page = pages[pageName];
+        alert("page = " + page);
         
         const promptElem = document.getElementById("prompt");
         promptElem.innerHTML = page.prompt;
