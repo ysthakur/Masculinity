@@ -2,71 +2,12 @@
 <html>
   <head>
     <title>Exploring Masculinity in Born a Crime</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <p id="prompt">Empty prompt</p>
-    <div id="actions">Bleh</div>
-    <script>
-      const pages = [
-        firstPage: {
-          prompt: "You hear someone behind you. Though you have no idea who it is, your Useless Info device (TM) tells you he speaks Tsonga.",
-          actions: [
-            ["Turn around to great them in Tsonga", "caughtByAbel"],
-            ["It's just some random person, keep walking", "caughtByAbel"],
-            ["Run!", "Good choice, it was Abel!"]
-          ]
-        },
-        caughtByAbel: {
-          prompt: "You've been caught by Abel!",
-          gameOver: true
-        },
-        escapedAbel: {
-          prompt: "Congrats, you escaped Abel!"
-        }
-      ];
-      
-      //From https://stackoverflow.com/a/35385518
-      function htmlToElement(html) {
-        const template = document.createElement('template');
-        template.innerHTML = html.trim();
-        return template.content.firstChild;
-      }
-      
-      function loadPage(pageName) {
-        const page = pages[pageName];
-        alert("page = " + page);
-        
-        const promptElem = document.getElementById("prompt");
-        promptElem.innerHTML = page.prompt;
-        
-        const actionsElem = document.getElementById("actions");
-        if (page.gameOver) {
-          actionsElem.innerHTML = "";
-        } else {
-          const actions = page.actions || [];
-          if (actions) {
-            actionsElem.innerHTML = "Actions:";
-            for (const ind in actions) {
-              const [actionText, actionCallback] = actions[ind];
-              actionsElem.innerHTML += `
-                <input type="radio" id="action${ind}" name="actionChoice" value="action${ind}choose">
-                <label for="action${ind}">${actionText}</label>`.trim();
-            }
-          } else {
-            actionsElem.innerHTML = "";
-          }
-          actionsElem.innerHTML += `<button type="button" onclick="foobar">Submit</button>`;
-        }
-      }
-      
-      loadPage("firstPage");
-    </script>
-    <canvas id="mainCanvas" width="400" height="300"></canvas>
-    <script>
-      var canvas = document.getElementById("mainCanvas");
-      var ctx = canvas.getContext("2d");
-      ctx.moveTo(0, 0);
-      ctx.fillText("blahblahblah", 300, 300);
-    </script>
+  <body class="masculine">
+    <p id="prompt" class="masculine"></p>
+    <div id="actions" class="masculine"></div>
+    <script type="text/javascript" src="js/main.js"/>
+    <script>loadPage("foo");</script>
   </body>
 </html>

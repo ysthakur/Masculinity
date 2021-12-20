@@ -1,0 +1,12 @@
+/* Make our text more masculine */
+.masculine {
+  color: rgba(13, 238, 24, 0.863);
+  background-color: black;
+  font-size: xx-large; /*because bigger is better and I don't like squinting*/
+  font-family: monospace; /*for that ugly hacker-y look*/
+}
+
+/*Make radio buttons display vertically*/
+input.masculine {
+  display: block;
+}
