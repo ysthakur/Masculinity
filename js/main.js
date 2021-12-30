@@ -8,6 +8,8 @@
 //You start out with this much money
 let money = 123;
 
+const rickroll = { prompt: "Here's a nice rickroll" }
+
 const day2 = {
   prompt: "You hear someone behind you. Though you have no idea who it is, your Useless Info device (TM) tells you he speaks Tsonga.",
   actions: {
@@ -20,7 +22,7 @@ const day2 = {
     "Run": {
       prompt: "Congrats, it was Abel, but you've escaped from him for now",
       actions: {
-        //todo
+        "Listen to Rick Astley": rickroll
       }
     }
   }
