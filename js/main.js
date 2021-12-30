@@ -5,21 +5,10 @@
  *           It's optional, the game's considered over if no actions are given
  */
 
-const day1 = {
-  prompt: "Your dog is nowhere to be found",
-  actions: {
-    "Ask your neighbors if they've seen Fufi": {
-      prompt: "foo"
-    },
-    "Call out \"Fufi! Fufi\"": {
-      prompt: "Fufi's deaf, idiot."
-    },
-    "Call out \"Panther! Panther\"": {
-      prompt: "Panther's your mom's dog, idiot."
-    }
-  }
-}
-x={
+//You start out with this much money
+let money = 123;
+
+const day2 = {
   prompt: "You hear someone behind you. Though you have no idea who it is, your Useless Info device (TM) tells you he speaks Tsonga.",
   actions: {
     "Turn around to great them in Tsonga": {
@@ -36,6 +25,46 @@ x={
     }
   }
 };
+
+const day1 = {
+  prompt: "Your dog is nowhere to be found",
+  actions: {
+    "Ask your neighbors if they've seen Fufi": {
+      prompt: "None of your neighbors have seen Fufi, but the kid next door has a dog that looks a lot like her",
+      actions: {
+        "Leave it alone and go back home because you dislike confrontation": {
+          prompt: "Coward."
+        },
+        "Tell the kid that it's your dog and she must have accidentally jumped over his fence": {
+          prompt: "The kid says Fufi's definitely his dog",
+          actions: {
+            "Beat him up": {
+              prompt: "You're a disgusting bully"
+            },
+            "Tell his mom about it": {
+              prompt: "She says she's sorry you've lost your dog but this is one is theirs"
+            },
+            "Buy Fufi back from the kid": {
+              prompt: "You got your dog back! But at what cost?",
+              actions: {
+                "Continue": () => { money -= 50; loadPage(day2) }
+              }
+            },
+            "Accept that Fufi was always also the boy's dog and that you can't have her for yourself forever": {
+              prompt: "You have learned an important lesson today. Not sure exactly what but whatever",
+              actions: {
+                "Continue": day2
+              }
+            }
+          }
+        }
+      }
+    },
+    "Call out \"Fufi! Fufi\"": { prompt: "Fufi's deaf, idiot." },
+    "Call out \"Panther! Panther\"": { prompt: "Panther's your mom's dog, idiot." }
+  }
+};
+
 
 //Start page
 const firstPage = {
