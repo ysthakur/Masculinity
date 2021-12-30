@@ -6,6 +6,20 @@
  */
 
 const day1 = {
+  prompt: "Your dog is nowhere to be found",
+  actions: {
+    "Ask your neighbors if they've seen Fufi": {
+      prompt: "foo"
+    },
+    "Call out \"Fufi! Fufi\"": {
+      prompt: "Fufi's deaf, idiot."
+    },
+    "Call out \"Panther! Panther\"": {
+      prompt: "Panther's your mom's dog, idiot."
+    }
+  }
+}
+x={
   prompt: "You hear someone behind you. Though you have no idea who it is, your Useless Info device (TM) tells you he speaks Tsonga.",
   actions: {
     "Turn around to great them in Tsonga": {
@@ -55,20 +69,43 @@ function loadPage(page) {
     for (const actionText in page.actions) {
       //TODO this is a hack
       actionsElem.innerHTML += `
-        <p type="button" onclick="nextPage('${actionText.replace("'", "\\'")}')" class="masculine">&gt; ${actionText}</p>
+        <p type="button" onclick="nextPage('${nicify(actionText)}')" class="masculine">&gt; ${actionText}</p>
       `.trim();
       ind++;
     }
+  } else {
+    //game over
+    actionsElem.innerHTML = `
+      <iframe id="ytplayer" type="text/html" width="560" height="315" frameborder="0"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    `.trim();
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")
   }
 }
 
+/**
+ * Replace double quotes with single quotes
+ * @param {*} string 
+ * @returns 
+ */
+function nicify(string) {
+  return string.replaceAll(/["']/g, "\\'")
+}
+
 function nextPage(chosen) {
-  const action = currPage.actions[chosen];
-  if (typeof action === "function") {
-    action();
-  } else {
-    loadPage(action);
+  for (let actionText in currPage.actions) {
+    console.log(nicify(actionText))
+    if (nicify(actionText) === nicify(chosen)) {
+      const action = currPage.actions[actionText];
+      if (typeof action === "function") {
+        action();
+      } else {
+        loadPage(action);
+      }
+      return;
+    }
   }
+  console.error("No such page: " + chosen);
 }
 
 loadPage(firstPage);
