@@ -100,7 +100,7 @@ function loadPage(page) {
     for (const actionText in page.actions) {
       //TODO this is a hack
       actionsElem.innerHTML += `
-        <p type="button" onclick="nextPage('${nicify(actionText)}')" class="masculine">&gt; ${actionText}</p>
+        <p type="button" onclick="nextPage('${nicify(actionText)}')" class="masculine masculineOption">&gt; ${actionText}</p>
       `.trim();
       ind++;
     }
