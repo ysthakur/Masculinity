@@ -6,6 +6,11 @@
   font-family: monospace; /*for that ugly hacker-y look*/
 }
 
+.masculine:hover {
+  color: black;
+  background-color: rgba(13, 238, 24, 0.863);
+}
+
 /*Make radio buttons display vertically*/
 input.masculine {
   display: block;
