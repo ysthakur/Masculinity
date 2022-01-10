@@ -6,7 +6,7 @@
   font-family: monospace; /*for that ugly hacker-y look*/
 }
 
-.masculine:hover {
+.masculineOption:hover {
   color: black;
   background-color: rgba(13, 238, 24, 0.863);
 }
